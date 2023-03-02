@@ -1,0 +1,15 @@
+a {
+    text-decoration: none;
+}
+
+.list {
+    margin: 4px;
+    margin-left: 16px;
+
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+
+    overflow-y: auto;
+}

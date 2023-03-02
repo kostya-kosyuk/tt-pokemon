@@ -1,0 +1,25 @@
+.card {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    border: 1px solid black;
+
+    text-transform: capitalize;
+
+    margin: 8px;
+
+    transition: transform 0.3s;
+
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.image {
+    border: 1px solid black;
+    margin: 4px;
+}
