@@ -4,13 +4,15 @@ import PokemonType from "../../types/PokemonType";
 import { ListItem } from "../ListItem/ListItem";
 import { TypeList } from "../TypeList/TypeList";
 
+import { Pokemon } from 'pokenode-ts'
+
 import './List.css';
 
 type Props = {
-    pokemonList: PokemonItem[] | undefined,
+    pokemonList: Pokemon[] | undefined,
     typesList: PokemonType[] | undefined,
     handleSelectType: (type: string) => void,
-    handleSelectPokemon: (Pokemon: PokemonItem) => void,
+    handleSelectPokemon: (Pokemon: Pokemon) => void,
 };
 
 export const List: React.FC<Props> = ({

@@ -1,11 +1,11 @@
 import { memo } from "react";
-import PokemonItem from "../../types/PokemonItem";
+import { Pokemon } from 'pokenode-ts'
 
 import './ListItem.css';
 
 type Props = {
-    pokemon: PokemonItem,
-    handleSelectPokemon: (pokemon: PokemonItem) => void,
+    pokemon: Pokemon,
+    handleSelectPokemon: (pokemon: Pokemon) => void,
 };
 
 export const ListItem: React.FC<Props> = ({ pokemon, handleSelectPokemon }) => {

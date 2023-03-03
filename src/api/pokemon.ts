@@ -1,29 +1,27 @@
-import PokemonUrl from '../types/PokemonUrl';
-import PokemonItem from '../types/PokemonItem';
-import PokemonType from '../types/PokemonType';
 import { client } from '../utils/fetchClient';
 
+import { PokemonClient } from 'pokenode-ts';
+import { Type } from 'pokenode-ts';
+
+
 const BASE_URL = 'https://pokeapi.co/api/v2';
-const POKEMON_URL = '/pokemon/?limit=';
 const TYPE_URL = '/type/';
 
-export const getPokemons = (limit: number = 12) => {
-    const url = BASE_URL + POKEMON_URL + limit;
+const api = new PokemonClient();
 
-    return client.get<PokemonUrl[]>(url);
+export const getPokemons = (offset: number = 1, limit: number = 12) => {
+    return api.listPokemons(offset, limit).then(({ results }) => results);
 };
 
 export const getTypes = () => {
-    const url = BASE_URL + TYPE_URL;
-
-    return client.get<PokemonType[]>(url);
+    return api.listTypes().then(({ results }) => results);
 };
 
-export const getPokemonInfo = (url: string) => {
-    return client.get<PokemonItem>(url);
+export const getPokemonDetails = (name: string) => {
+    return api.getPokemonByName(name);
 };
 
 export const getPokemonsByType = (type: string) => {
     const url = BASE_URL + TYPE_URL + type;
-    return client.getByType<PokemonUrl[]>(url);
+    return client.get<Type>(url).then(({pokemon}) => pokemon);
 };
