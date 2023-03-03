@@ -1,4 +1,6 @@
 .card {
+    width: 112px;
+
     display: flex;
     flex-direction: column;
 
@@ -19,7 +21,17 @@
     transform: scale(1.05);
 }
 
-.image {
+.card-image {
+    width: 96px;
+    height: 96px;
     border: 1px solid black;
     margin: 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-name {
+    text-align: center;
 }

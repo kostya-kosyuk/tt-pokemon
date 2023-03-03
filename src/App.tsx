@@ -3,7 +3,7 @@ import './App.css';
 
 import { List } from './Components/List/List';
 import PokemonType from './types/PokemonType';
-import { getPokemonInfo, getPokemons, getTypes } from './api/pokemon';
+import { getPokemonInfo, getPokemons, getPokemonsByType, getTypes } from './api/pokemon';
 import PokemonItem from './types/PokemonItem';
 import { Pokemon } from './Components/Pokemon/Pokemon';
 
@@ -13,7 +13,7 @@ function App() {
   const [pokemonList, setPokemonList] = useState<PokemonItem[]>();
   const [pokemonTypes, setPokemonTypes] = useState<PokemonType[]>();
   const [selectedPokemon, setSelectedPokemon] = useState<PokemonItem>();
-  const [selectedType, setSelectedType] = useState<string>('all');
+  const [selectedType, setSelectedType] = useState<string>();
 
   const handleSelectType = (type: string) => {
     setSelectedType(type);
@@ -39,6 +39,17 @@ function App() {
       getTypes().then(data => setPokemonTypes(data));
     }
   }, []);
+
+  useEffect(() => {
+    if (selectedType) {
+      getPokemonsByType(selectedType).then(data => {
+        const promises = data.map(({url}) => getPokemonInfo(url));
+
+        return Promise.all(promises);
+      })
+      .then(pokemons => setPokemonList(pokemons));
+    }
+  }, [selectedType]);
 
   return (
     <div className='App'>
