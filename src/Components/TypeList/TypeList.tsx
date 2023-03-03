@@ -2,13 +2,15 @@ import { useState } from 'react';
 import PokemonType from '../../types/PokemonType';
 import './TypeList.css';
 import classNames from 'classnames';
+import { TypeItem } from '../TypeItem/TypeItem';
 
 type Props = {
     types: PokemonType[] | undefined,
     handleSelectType: (type: string) => void,
+    selectedType: string,
 }
 
-export const TypeList: React.FC<Props> = ({ types, handleSelectType }) => {
+export const TypeList: React.FC<Props> = ({ types, handleSelectType, selectedType }) => {
     const [isTypesHidden, setTypesHidden] = useState(false);
 
     const handleShowTypes = () => setTypesHidden(prev => !prev);
@@ -21,19 +23,12 @@ export const TypeList: React.FC<Props> = ({ types, handleSelectType }) => {
             </div>
             <ul className={classNames(`types-list`, isTypesHidden && 'show')}>
                 {types
-                    ? types.map(({ name }) => (
-                        <li key={name} className='list-item'>
-                            <span className={classNames(`t-type type-${name}`)}>
-                                <a
-                                    href={`#${name}`}
-                                    title={`${name} type`}
-                                    onClick={() => handleSelectType(name)}
-                                >
-                                    <span className="t-type2">
-                                        {name}
-                                    </span>
-                                </a>
-                            </span>
+                    ? [{name: 'all'},...types].map(({ name }) => (
+                        <li key={name} className={classNames('list-item', selectedType === name && 'selected')}>
+                            <TypeItem
+                                typeName={name}
+                                handleSelectType={handleSelectType}
+                            />
                         </li>
                     ))
                     : <div>Loading...</div>

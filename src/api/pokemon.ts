@@ -10,7 +10,7 @@ const TYPE_URL = '/type/';
 const api = new PokemonClient();
 
 export const getPokemons = (offset: number = 1, limit: number = 12) => {
-    return api.listPokemons(offset, limit).then(({ results }) => results);
+    return api.listPokemons(offset, limit).then(({ results, count }) => ({ results, count }));
 };
 
 export const getTypes = () => {
