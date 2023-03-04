@@ -1,3 +1,16 @@
+.pokemonContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.4);
+
+    z-index: 1;
+}
+
 .selectedPokemon {
     position: fixed;
     top: 50%;
@@ -10,12 +23,25 @@
     max-height: 400px;
     max-width: 300px;
 
+    background-color: white;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     border: 1px solid black;
+    border-radius: 4px;
+
+    z-index: 2;
+}
+
+@media only screen and (max-width: 767px) {
+    .selectedPokemon {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 .selectedPokemon-image {

@@ -7,10 +7,9 @@ import { TypeItem } from "../TypeItem/TypeItem";
 type Props = {
     pokemon: Pokemon,
     handleSelectPokemon: (pokemon: Pokemon) => void,
-    handleSelectType: (typeName: string) => void,
 };
 
-export const ListItem: React.FC<Props> = ({ pokemon, handleSelectPokemon, handleSelectType }) => {
+export const ListItem: React.FC<Props> = ({ pokemon, handleSelectPokemon }) => {
     return (
         <div className="card" onClick={() => handleSelectPokemon(pokemon)}>
             {pokemon.sprites.front_default
@@ -21,7 +20,6 @@ export const ListItem: React.FC<Props> = ({ pokemon, handleSelectPokemon, handle
                 <TypeItem
                     key={type.name}
                     typeName={type.name}
-                    handleSelectType={handleSelectType}
                 />
             )}
         </div>

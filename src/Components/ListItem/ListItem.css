@@ -1,20 +1,25 @@
 .card {
     width: 112px;
+    margin: 8px;
+
+    border-radius: 4px;
 
     display: flex;
     flex-direction: column;
-
     align-items: center;
 
     border: 1px solid black;
-
     text-transform: capitalize;
-
-    margin: 8px;
 
     transition: transform 0.3s;
 
     cursor: pointer;
+}
+
+@media only screen and (max-width: 767px) {
+    .card {
+        width: 100px;
+    }
 }
 
 .card:hover {
@@ -30,6 +35,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    border-radius: 2px;
 }
 
 .card-name {

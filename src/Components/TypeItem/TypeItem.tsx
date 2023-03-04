@@ -5,7 +5,7 @@ import './TypeItem.css';
 
 type Props = {
     typeName: string,
-    handleSelectType: (type: string) => void,
+    handleSelectType?: (type: string) => void,
 };
 
 export const TypeItem: React.FC<Props> = ({typeName, handleSelectType}) => {
@@ -14,7 +14,7 @@ export const TypeItem: React.FC<Props> = ({typeName, handleSelectType}) => {
             <a
                 href={`#${typeName}`}
                 title={`${typeName} type`}
-                onClick={() => handleSelectType(typeName)}
+                onClick={() => handleSelectType && handleSelectType(typeName)}
             >
                 <span className="t-type2">
                     {typeName}

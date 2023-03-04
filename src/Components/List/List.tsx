@@ -47,7 +47,6 @@ export const List: React.FC<Props> = ({
                         key={pokemon.name}
                         pokemon={pokemon}
                         handleSelectPokemon={handleSelectPokemon}
-                        handleSelectType={handleSelectType}
                     />
                 ))
                 : <div>Loading...</div>}

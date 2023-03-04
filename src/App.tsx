@@ -38,6 +38,10 @@ function App() {
     setSelectedPokemon(pokemon);
   };
 
+  const handleUnselectPokemon = () => {
+    setSelectedPokemon(undefined);
+  };
+
   const handleChangePage = (page: number) => {
     setActivePage(page);
   };
@@ -94,7 +98,11 @@ function App() {
           totalPokemonCount={totalPokemonCount}
           countOnPage={countOnPage}
         />
-        {selectedPokemon && <SelectedPokemon pokemon={selectedPokemon} handleSelectType={handleSelectType}/>}
+        {selectedPokemon && <SelectedPokemon
+          pokemon={selectedPokemon}
+          handleSelectType={handleSelectType}
+          handleUnselectPokemon={handleUnselectPokemon}
+        />}
       </div>
     </div>
   );
