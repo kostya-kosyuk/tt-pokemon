@@ -7,9 +7,14 @@ Npm was used as a package manager.
 [DEMO-LINK](https://kostya-kosyuk.github.io/tt-pokemon/)
 
 ## Screenshots
-
+List:
 ![List](https://user-images.githubusercontent.com/80011474/222956349-633bb15f-f27b-4dde-ae70-900bb4d4b1fc.png)
+
+Filter by type:
+
 ![Filter by type](https://user-images.githubusercontent.com/80011474/222956367-a2a078b7-c54f-4123-a724-f1b8addd1ef4.png)
+
+Selected pokemon:
 ![Selected pokemon](https://user-images.githubusercontent.com/80011474/222956388-eb106a8b-2b59-41ae-af81-43187eb9a95d.png)
 
 ## Getting started
