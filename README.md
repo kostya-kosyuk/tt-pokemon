@@ -1,7 +1,7 @@
 # Test-Task
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-Created using html+css, React.js.
+Created using html+css, React.js, pokenode-ts as client API.
 Npm was used as a package manager.
 
 [DEMO-LINK](https://kostya-kosyuk.github.io/tt-pokemon/)
